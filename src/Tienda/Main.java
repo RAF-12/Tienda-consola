@@ -3,7 +3,7 @@ package Tienda;
 
 import java.util.Scanner;
 import Tienda.Tienda;
-// este es un cambio de prueba par github1
+// este es un cambio de prueba par github23
 public class Main {
     public static void main(String[] args) {
         boolean salir = false;
@@ -42,17 +42,17 @@ public class Main {
                 case 3:
                     System.out.println("Ingrese el nombre de la Producto");
                 
-                    /*scanner = new Scanner(System.in);
-                    String nombre = scanner.nextLine();
+                    scanner = new Scanner(System.in);
+                    String productoName = scanner.nextLine();
                     
                     System.out.println("Ingrese el codigo de la Producto");
-                    String codigo = scanner.nextLine();*/       
+                    String productoCodigo = scanner.nextLine();      
                     
                     System.out.println("Ingrese el Precio de la Producto");
                     scanner = new Scanner(System.in);
                     int precio = scanner.nextInt();
                     
-                    //producto = new  Producto( precio);
+                    producto = new  Producto(productoCodigo, productoName, precio);
                  
                     break;
                 case 4:

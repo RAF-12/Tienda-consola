@@ -9,34 +9,37 @@ public class Tienda {
     
     //cosntuctor
     public Tienda(String nombre) {
-        if (!nombre.isEmpty()) {
+        if (nombre != null && !nombre.trim().isEmpty()) {
             this.nombre = nombre;
-            System.out.println("Tienda "+ this.nombre + " agregada");
+            System.out.println("La tienda "+ this.nombre + "a sido creada");
         } else {
             this.nombre = "SIN NOMBRE";
-            System.out.println("Tienda "+ this.nombre + " agregada");
+            System.out.println("La tienda se agrego como "+ this.nombre);
         }
         
     }
     
     //agregar categoria
     public void agregarCategoria(Categoria categoria ){
-        for (int i = 0; i < this.categoria.size(); i++) {
-            System.out.println("El tamalo es " +this.categoria.size() );  
+        if (categoria == null) {
+            throw  new  IllegalArgumentException("La categoria no puede ser null");
         }
         
-         for (Categoria c : this.categoria) {
-            if (!c.equals(categoria)|| !c.equals("")) {
-                c = categoria;
-            } else {
-                System.out.println("nOM PUEDE ESTA VACIO");
+        for (Categoria c : this.categoria) {
+            if (categoria != null && c.getNombre().equalsIgnoreCase(categoria.getNombre())) {
+                throw new IllegalArgumentException(categoria + "Ya existe dentro de la Tienda " + nombre );
             }
         }
+        this.categoria.add(categoria);
         
     }
     // mostrar informacion de la tienda
     public void mostrarInformacion(){
-        System.out.println("La tienda se llama" + nombre);
+        System.out.println("La tienda se llama " + nombre);
+        for (int i = 0; i < categoria.size(); i++) {
+            System.out.println((i+1) + " ");
+            categoria.get(i).mostrarInformacion();         
+        }
 
 
     }
